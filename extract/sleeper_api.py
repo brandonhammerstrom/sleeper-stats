@@ -153,9 +153,9 @@ def get_roster_stats(rosters: list[dict]) -> pd.DataFrame:
             roster_data["record"] = roster["metadata"]["record"]
         # really only needed to catch at start of season
         except KeyError:
-            roster_data["points_potential"] = 0
-            roster_data["win_streak"] = 0
-            roster_data["record"] = 0
+            roster_data["points_potential"] = ""
+            roster_data["win_streak"] = ""
+            roster_data["record"] = ""
 
         roster_team_data.append(roster_data)
 

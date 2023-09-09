@@ -71,7 +71,7 @@ def main(
     pivot_data.to_csv(file_name + "_pivot.csv")
 
     # fix data before uploading
-    final_df = final_df.fillna(0)
+    final_df = final_df.fillna("")
 
     logger.info("Updating Google sheet with new data")
     # updating google sheets
