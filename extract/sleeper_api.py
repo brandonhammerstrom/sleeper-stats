@@ -106,7 +106,7 @@ def get_weekly_data(
         team_data["opponent_name"] = team[4]
         team_data["points_for"] = team[2]
         team_data["points_against"] = team[5]
-        team_data["points_spread"] = round(team[2] - team[5], 2)
+        #team_data["points_spread"] = round(team[2] - team[5], 2)
         if week < 15:
             team_data["playoffs"] = False
         else:
@@ -117,10 +117,11 @@ def get_weekly_data(
     df = pd.DataFrame(final_team_data)
 
     # setting wins, losses, and ties
-    df["wins"] = np.where(df["points_for"] > df["points_against"], 1, 0)
-    df["losses"] = np.where(df["points_for"] < df["points_against"], 1, 0)
-    df["ties"] = np.where(df["points_for"] == df["points_against"], 1, 0)
+    # df["wins"] = np.where(df["points_for"] > df["points_against"], 1, 0)
+    # df["losses"] = np.where(df["points_for"] < df["points_against"], 1, 0)
+    # df["ties"] = np.where(df["points_for"] == df["points_against"], 1, 0)
     df["current_period"] = current_period
+    df["points_spread"] = df["points_for"] - df["points_against"]
 
     return df
 
@@ -143,6 +144,10 @@ def get_roster_stats(rosters: list[dict]) -> pd.DataFrame:
             100 - roster["settings"]["waiver_budget_used"]
         )
         roster_data["division"] = roster["settings"]["division"]
+        roster_data["wins"] = roster["settings"]["wins"]
+        roster_data["losses"] = roster["settings"]["losses"]
+        roster_data["ties"] = roster["settings"]["ties"]
+
         try:
             roster_data["points_potential"] = float(
                 str(roster["settings"]["ppts"])
