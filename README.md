@@ -28,6 +28,7 @@ This folder contains the module `league_settings.py`. In this module, you will n
   * This is a `list` of `tuples` in this format: `[(league_id, year)]`
 * `friend_file` = output file name
 * `friend_google_sheet` = name of Google sheet
+* `friend_power_rank_order` = power ranking column order for ranking Google sheet
 
 ## extract
 This folder contains the module `sleeper_api.py`. This module contains all of the necessary functions to return and parse the data from the Sleeper API.

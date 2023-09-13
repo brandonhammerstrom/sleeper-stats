@@ -106,7 +106,7 @@ def get_weekly_data(
         team_data["opponent_name"] = team[4]
         team_data["points_for"] = team[2]
         team_data["points_against"] = team[5]
-        #team_data["points_spread"] = round(team[2] - team[5], 2)
+        # team_data["points_spread"] = round(team[2] - team[5], 2)
         if week < 15:
             team_data["playoffs"] = False
         else:

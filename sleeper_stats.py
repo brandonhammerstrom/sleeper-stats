@@ -14,6 +14,7 @@ def main(
     league_info: list[tuple],
     sheet_name: str,
     file_name: str,
+    power_order: list[str],
     current_week: int,
     current_year: int,
 ):
@@ -24,6 +25,7 @@ def main(
     :param league_info: list of tuples from config.league_settings
     :param sheet_name: name of Google worksheet to save data to
     :param file_name: file name from config.legaue_settings
+    :param power_order: this is the order of the power rankings week stats by team
     :param current_week: integer of week currently being run
     :param curent_year: integer of year currently being run
 
@@ -67,6 +69,10 @@ def main(
         columns="user_name",
     )
 
+    # converting back to df and sotring cols
+    pivot_data = pivot_data.reset_index()
+    pivot_data = pivot_data[power_order]
+
     final_df.to_csv(file_name + ".csv", index=False)
     pivot_data.to_csv(file_name + "_pivot.csv")
 
@@ -91,12 +97,24 @@ if __name__ == "__main__":
 
     # work league
     logger.info("Generating new work league data files")
-    main(work_league_info, work_google_sheet, work_file, current_week, current_year)
+    main(
+        work_league_info,
+        work_google_sheet,
+        work_file,
+        work_power_rank_order,
+        current_week,
+        current_year,
+    )
     logger.info("Work league data successfully updated")
 
     # friend leaguedata
     logger.info("Generating new friend league data files")
     main(
-        friend_league_info, friend_google_sheet, friend_file, current_week, current_year
+        friend_league_info,
+        friend_google_sheet,
+        friend_file,
+        friend_power_rank_order,
+        current_week,
+        current_year,
     )
     logger.info("Friend league data successfully updated")
