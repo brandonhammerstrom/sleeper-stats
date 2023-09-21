@@ -156,11 +156,25 @@ def get_roster_stats(rosters: list[dict]) -> pd.DataFrame:
             )
             roster_data["win_streak"] = roster["metadata"]["streak"]
             roster_data["record"] = roster["metadata"]["record"]
+            # points for all time
+            roster_data["points_for_all_time"] = float(
+                str(roster["settings"]["fpts"])
+                + "."
+                + str(roster["settings"]["fpts_decimal"])
+            )
+            # points against all time
+            roster_data["points_against_all_time"] = float(
+                str(roster["settings"]["fpts_against"])
+                + "."
+                + str(roster["settings"]["fpts_against_decimal"])
+            )
         # really only needed to catch at start of season
         except KeyError:
             roster_data["points_potential"] = ""
             roster_data["win_streak"] = ""
             roster_data["record"] = ""
+            roster_data["points_for_all_time"] = ""
+            roster_data["points_against_all_time"] = ""
 
         roster_team_data.append(roster_data)
 
