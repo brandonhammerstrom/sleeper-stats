@@ -91,21 +91,22 @@ if __name__ == "__main__":
     logging.basicConfig(
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
         level=logging.INFO,
+        force=True,
     )
 
     current_year, current_week = user_args()
 
-    # work league
-    logger.info("Generating new work league data files")
-    main(
-        work_league_info,
-        work_google_sheet,
-        work_file,
-        work_power_rank_order,
-        current_week,
-        current_year,
-    )
-    logger.info("Work league data successfully updated")
+    # work league <-- leaving in code for future
+    # logger.info("Generating new work league data files")
+    # main(
+    #     work_league_info,
+    #     work_google_sheet,
+    #     work_file,
+    #     work_power_rank_order,
+    #     current_week,
+    #     current_year,
+    # )
+    # logger.info("Work league data successfully updated")
 
     # friend leaguedata
     logger.info("Generating new friend league data files")

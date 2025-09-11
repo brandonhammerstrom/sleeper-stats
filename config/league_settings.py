@@ -28,6 +28,7 @@ friend_league_info = [
     ("860234229617971200", 2022),
     ("995872079285313536", 2023),
     ("1124833063369469952", 2024),
+    ("1257479052940296192", 2025),
 ]
 friend_file = "output/friend_league_data"
 friend_google_sheet = "Sleeper Sharknado League Data"
