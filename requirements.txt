@@ -1,3 +1,0 @@
-pandas==2.3.2
-gspread==5.12.4
-sleeper-api-wrapper==1.1.0

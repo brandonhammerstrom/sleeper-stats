@@ -1,0 +1,11 @@
+[project]
+name = "sleeper-stats"
+version = "0.1.0"
+description = "Baseline project setup for running package with uv"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "gspread>=6.2.1",
+    "pandas>=3.0.1",
+    "sleeper-api-wrapper>=1.2.1",
+]
